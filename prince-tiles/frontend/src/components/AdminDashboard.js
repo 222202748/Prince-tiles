@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://prince-tiles-0fxc.onrender.com/api';
+const BASE_URL = 'https://prince-tiles-0fxc.onrender.com';
 
 export default function AdminDashboard() {
   const [designs, setDesigns] = useState([]);
@@ -167,7 +168,7 @@ export default function AdminDashboard() {
                     <div>
                       <h4 style={{ margin: '0', color: '#333' }}>{d.title}</h4>
                       <p style={{ margin: '5px 0 0', fontSize: '0.9rem', color: '#666' }}>{d.desc.substring(0, 50)}...</p>
-                      <a href={`http://localhost:5000/${d.pdfPath}`} target="_blank" rel="noreferrer" style={{ fontSize: '0.8rem', color: '#c9a96e', textDecoration: 'underline', cursor: 'pointer' }}>View PDF</a>
+                      <a href={`${BASE_URL}/${d.pdfPath}`} target="_blank" rel="noreferrer" style={{ fontSize: '0.8rem', color: '#c9a96e', textDecoration: 'underline', cursor: 'pointer' }}>View PDF</a>
                     </div>
                   </div>
                   <button onClick={() => handleDeleteDesign(d._id)} style={{ background: 'none', border: 'none', color: '#ff4444', cursor: 'pointer', fontSize: '1.2rem' }}><i className="fas fa-trash" /></button>
@@ -208,7 +209,7 @@ export default function AdminDashboard() {
               {gallery.map(item => (
                 <div key={item._id} className="admin-item-card" style={{ background: '#fff', padding: '20px', borderRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                    <img src={`http://localhost:5000/${item.imagePath}`} alt={item.title} style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px' }} />
+                    <img src={`${BASE_URL}/${item.imagePath}`} alt={item.title} style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px' }} />
                     <div>
                       <h4 style={{ margin: '0', color: '#333' }}>{item.title}</h4>
                       <p style={{ margin: '5px 0 0', fontSize: '0.8rem', color: '#666' }}>{item.category} | {item.loc}</p>

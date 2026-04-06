@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://prince-tiles-0fxc.onrender.com/api';
+const BASE_URL = 'https://prince-tiles-0fxc.onrender.com';
 
 const filters = [
   { key: 'all',      label: 'All' },
@@ -25,7 +26,7 @@ export default function Gallery() {
       const res = await axios.get(`${API_URL}/gallery`);
       const dynamicItems = res.data.map(item => ({
         ...item,
-        imgUrl: `http://localhost:5000/${item.imagePath}`
+        imgUrl: `${BASE_URL}/${item.imagePath}`
       }));
       setGalleryItems(dynamicItems);
     } catch (err) {

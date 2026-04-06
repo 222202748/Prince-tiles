@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://prince-tiles-0fxc.onrender.com/api';
 
 export default function Login() {
   const [username, setUsername] = useState('');

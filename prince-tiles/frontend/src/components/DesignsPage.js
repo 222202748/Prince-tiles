@@ -4,7 +4,8 @@ import Header from './Header';
 import Footer from './Footer';
 import { WhatsAppFloat, BackToTop } from './FloatingElements';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://prince-tiles-0fxc.onrender.com/api';
+const BASE_URL = 'https://prince-tiles-0fxc.onrender.com';
 
 export default function DesignsPage() {
   const [designs, setDesigns] = useState([]);
@@ -19,7 +20,7 @@ export default function DesignsPage() {
       const res = await axios.get(`${API_URL}/designs`);
       const dynamicDesigns = res.data.map(d => ({
         ...d,
-        pdf: `http://localhost:5000/${d.pdfPath}`
+        pdf: `${BASE_URL}/${d.pdfPath}`
       }));
       setDesigns(dynamicDesigns);
     } catch (err) {

@@ -1,4 +1,16 @@
 require('dotenv').config();
+
+// Required environment variables check
+const requiredEnvVars = ['MONGODB_URI', 'JWT_SECRET', 'ADMIN_PASSWORD'];
+const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+
+if (missingVars.length > 0) {
+  console.error('\n❌ ERROR: Missing required environment variables in .env:');
+  missingVars.forEach(varName => console.error(`   - ${varName}`));
+  console.log('\n💡 Please add these to your .env file or Render environment settings.\n');
+  process.exit(1); // Exit with failure
+}
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');

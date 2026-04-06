@@ -24,6 +24,11 @@ app.use('/api/auth', authRoutes);
 app.use('/api/designs', designRoutes);
 app.use('/api/gallery', galleryRoutes);
 
+// Root route for Render health check
+app.get('/', (req, res) => {
+  res.send('Prince Tiles API is Running');
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({
